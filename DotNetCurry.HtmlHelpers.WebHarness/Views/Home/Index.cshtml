@@ -1,0 +1,34 @@
+﻿@model DotNetCurry.HtmlHelpers.WebHarness.Models.TwoDimensionalData
+
+@using DotNetCurry.HtmlHelpers;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Message</h1>
+            </hgroup>
+            <p>
+            Html 5 Bar-Chart Helper
+            </p>
+        </div>
+    </section>
+}
+@using (Html.BeginForm())
+{   
+    @Html.Chart("sampleChart", Model.Data, "Year", 
+        "Hits in Thousands");   
+}
+
+@section Scripts
+{
+<script type="text/javascript">
+    $(function () {
+        barChart();
+    });   
+</script>
+}
+
